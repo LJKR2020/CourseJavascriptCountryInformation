@@ -4,16 +4,18 @@ async function allCountries() {
     try {
         const result = await axios.get("https://restcountries.com/v2/all");
         const countries = result.data;
+        console.log(countries);
         countries.sort((a, b) => {
-            return a.population - b.population
+            return a.population - b.population;
         });
+        // aantallen leesbaarder maken.
         return listItems(countries);
     } catch (e) {
         console.error(e);
     }
 }
 
-allCountries();
+console.log(allCountries());
 
 function listItems(countries) {
     const countryInfo = document.getElementById("info");
@@ -21,13 +23,29 @@ function listItems(countries) {
     countryInfo.innerHTML = countries.map((country) => {
         return `
             <li>
-            <img id="flag" src=${country.flag} alt=${country.name}>
-            <h3>${country.name}</h3>
-            <p>Has a population of ${country.population} people</p>
+                <img class="flag" src="${country.flag}" alt="Flag of ${country.name}">
+                <span class="${fetchRegionClass(country.region)}">${country.name}</span>
+                <p class="population">Has a population of ${country.population} people</p>
             </li>
-            
         `;
-    })
+    }).join("");
+}
+
+function fetchRegionClass(country) {
+    switch (country) {
+        case "Africa":
+            return "blue";
+        case "Americas":
+            return "green";
+        case "Asia":
+            return "red";
+        case "Europe":
+            return "yellow";
+        case "Oceania":
+            return "purple";
+        default:
+            return "black"
+    }
 }
 
 
