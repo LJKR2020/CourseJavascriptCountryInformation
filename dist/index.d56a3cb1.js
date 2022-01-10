@@ -466,24 +466,28 @@ async function allCountries() {
     try {
         const result = await _axiosDefault.default.get("https://restcountries.com/v2/all");
         const countries = result.data;
-        console.log(countries);
-        const countryInfo = document.getElementById("info");
-        countryInfo.innerHTML = `
-            <section>
-            <h3> 
-                <img id="flag" src=${countries[157].flag} alt=${countries[157].name}>
-                ${countries[157].name}
-            </h3>
-            <p>Has a population of ${countries[157].population} people</p>
-            </section>
-            
-        `;
+        countries.sort((a, b)=>{
+            return a.population - b.population;
+        });
+        return listItems(countries);
     } catch (e) {
         console.error(e);
     }
 }
-const listOfCountries = allCountries();
-console.log(listOfCountries);
+allCountries();
+function listItems(countries) {
+    const countryInfo = document.getElementById("info");
+    countryInfo.innerHTML = countries.map((country)=>{
+        return `
+            <li>
+            <img id="flag" src=${country.flag} alt=${country.name}>
+            <h3>${country.name}</h3>
+            <p>Has a population of ${country.population} people</p>
+            </li>
+            
+        `;
+    });
+}
 
 },{"axios":"1IeuP","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1IeuP":[function(require,module,exports) {
 module.exports = require('./lib/axios');
