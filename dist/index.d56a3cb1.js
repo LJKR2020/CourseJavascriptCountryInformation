@@ -462,17 +462,28 @@ function hmrAcceptRun(bundle, id) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-async function allCountries(e) {
+async function allCountries() {
     try {
         const result = await _axiosDefault.default.get("https://restcountries.com/v2/all");
-        console.log(result.data);
-    } catch (e1) {
-        console.error(e1);
+        const countries = result.data;
+        console.log(countries);
+        const countryInfo = document.getElementById("info");
+        countryInfo.innerHTML = `
+            <section>
+            <h3> 
+                <img id="flag" src=${countries[157].flag} alt=${countries[157].name}>
+                ${countries[157].name}
+            </h3>
+            <p>Has a population of ${countries[157].population} people</p>
+            </section>
+            
+        `;
+    } catch (e) {
+        console.error(e);
     }
 }
-allCountries("");
-const countryinfo = document.getElementById("info");
-countryinfo.innerHTML = `hallo`;
+const listOfCountries = allCountries();
+console.log(listOfCountries);
 
 },{"axios":"1IeuP","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"1IeuP":[function(require,module,exports) {
 module.exports = require('./lib/axios');
