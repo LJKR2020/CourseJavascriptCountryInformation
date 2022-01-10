@@ -1,1 +1,1 @@
-{"mappings":"","sources":["src/styles.css"],"sourcesContent":[null],"names":[],"version":3,"file":"index.be5cf2f4.css.map","sourceRoot":"/__parcel_source_root/"}
+{"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA","sources":["src/styles.css"],"sourcesContent":["body {\r\n    background-color: hsl(170, 90%, 80%);\r\n}\r\n\r\n#worldmap {\r\n    width: 100%;\r\n    height: 100%;\r\n}"],"names":[],"version":3,"file":"index.be5cf2f4.css.map","sourceRoot":"/__parcel_source_root/"}
