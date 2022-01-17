@@ -24,31 +24,9 @@ function listItems(countries) {
         return `
             <li>
                 <img class="flag" src="${country.flag}" alt="Flag of ${country.name}">
-                <span class="${fetchRegionClass(country.region)}">${country.name}</span>
+                <span class="${country.region}">${country.name}</span>
                 <p class="population">Has a population of ${country.population} people</p>
             </li>
         `;
     }).join("");
 }
-
-function fetchRegionClass(country) {
-    switch (country) {
-        case "Africa":
-            return "blue";
-        case "Americas":
-            return "green";
-        case "Asia":
-            return "red";
-        case "Europe":
-            return "yellow";
-        case "Oceania":
-            return "purple";
-        default:
-            return "black"
-    }
-}
-
-
-
-
-

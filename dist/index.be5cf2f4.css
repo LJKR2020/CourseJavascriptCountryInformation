@@ -5,6 +5,7 @@ body {
     align-items: center;
     font-family: "Roboto Condensed", sans-serif;
 }
+
 h1 {
     font-size: 50px;
 }
@@ -28,10 +29,20 @@ li {
     border-radius: 10px;
 }
 
+#globe {
+    width: 400px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+/*flag of countrylist*/
 .flag {
     width: 20px;
     margin: 0 10px 0 0;
-    display: inline-block;
+}
+/*flag of searchoutcome*/
+#flag {
+    width: 150px;
+    margin: 25px 20px 0 0;
 }
 
 .population {
@@ -39,19 +50,34 @@ li {
     font-size: 12px;
 }
 
-.blue {
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#country-information {
+    display: block;
+    max-width: 600px;
+    border-radius: 10px;
+    background-color: hsl(95, 90%, 98%);
+    padding: 30px;
+}
+
+
+.Africa {
     color: blue;
 }
-.green {
+.Americas {
     color: green;
 }
-.red {
+.Asia {
     color: red;
 }
-.yellow {
+.Europe {
     color: yellow;
 }
-.purple {
+.Oceania {
     color: purple
 }
 /*# sourceMappingURL=index.be5cf2f4.css.map */
